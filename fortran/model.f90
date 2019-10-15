@@ -20,6 +20,18 @@
     !Nu_approx: approximate scheme - good for CMB, but not formally correct and no good for matter power
     !Nu_best: automatically use mixture which is fastest and most accurate
 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    !!! Ultra-light axion parameters
+    !
+    !DM
+	!Size of axion integration array (number of time slices for homogeneous scalar field evolution)   
+    integer, parameter :: ntable = 50000 ! RH added this so it is callable everywhere !HW PLAY WITH THIS started at 10000
+    !Number of scalar initial conditions to try to build a cubic spline
+    !and thus determine correct initial condition for scalar field evolution
+    integer, parameter:: nphi = 100
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
     integer, parameter :: max_Nu = 5 !Maximum number of neutrino species
     integer, parameter :: max_transfer_redshifts = 150
 
