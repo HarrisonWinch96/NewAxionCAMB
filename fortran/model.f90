@@ -146,6 +146,7 @@
 
         real(dl)  :: ombh2 = 0._dl !baryon density Omega_b h^2
         real(dl)  :: omch2 = 0._dl !cold dark matter density Omega_c h^2
+	real(dl)  :: omaxh2 = 0._dl !HW axion density Omega_ax h^2
         real(dl)  :: omk = 0._dl !Omega_K
         real(dl)  :: omnuh2 = 0._dl !massive neutino Omega_nu h^2
         real(dl)  :: H0 = 67._dl !Hubble parameter in km/s/Mpc
@@ -158,6 +159,23 @@
         real(dl)  :: Nu_mass_degeneracies(max_nu)
         real(dl)  :: Nu_mass_fractions(max_nu) !The ratios of the total densities
         integer   :: Nu_mass_numbers(max_nu) !physical number per eigenstate
+
+	real(dl)  :: ma, a_osc, a_osc_wax, a_osc_cs2, alpha_ax !HW axion mass, aosc, and other parameters
+	real(dl)  :: fa, dfac !HW Axion symmetry-breaking scale
+    	logical   :: Forbidden_Zone !HW know when to break axionCAMB
+    
+	!HW axion isocurvature parameters
+	real(dl)  :: ratio
+    	real(dl)  :: hinf, amp_i
+    	logical :: axion_isocurvature
+    	!DM: tensor to scalar ratio is in CP for use in axion isocurvature i.c.'s 
+    
+	!HW added axion parameters
+	real(dl) :: wax_table(ntable), grhoax_table(ntable) ,loga_table(ntable),wax_table_buff(ntable),grhoax_table_buff(ntable)
+  	!Adiabatic sound speed Pdot/rhodot and its spline buffer
+    	real(dl) ::cs2_table(ntable),cs2_table_buff(ntable)
+    	real(dl) :: phiinit,aeq, ainit, lens_amp,drefp_hsq
+    
 
         class(TInitialPower), allocatable :: InitPower
         class(TRecombinationModel), allocatable :: Recomb
